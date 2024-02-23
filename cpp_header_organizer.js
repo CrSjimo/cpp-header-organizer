@@ -41,7 +41,7 @@ for (let line of headerLineContent) {
             stdHeaderLines.push(line);
         else if (/^<QM(Core|Widgets)/.test(header))
             qtMediateHeaderLines.push(line);
-        else if (header.startsWith('<Q') || header.startsWith('<private/q'))
+        else if (header.startsWith('<Qt') || (header.startsWith('<Q') && !header.includes('/')) || header.startsWith('<private/q'))
             qtHeaderLines.push(line);
         else
             libraryHeaderLines.push(line);
